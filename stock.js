@@ -2,6 +2,8 @@ var request = require('request');
 var async = require('async');
 var gbk = require('gbk');
 
+var WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL || 'https://hooks.slack.com/services/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';
+
 function checkStock(stock, cb) {
 	request.get({url:'http://hq.sinajs.cn/list=' + stock, encoding: null}, function(err, res, body) {
 		if (err) {
@@ -42,8 +44,8 @@ function stock (req, res, next) {
 			username: 'StockRob'
 		};
 
-		console.log(JSON.stringify(payload));
-		return res.status(200).end();
+		// console.log(JSON.stringify(payload));
+		// return res.status(200).end();
 		request.post({
 			url: WEBHOOK_URL,
 			body: JSON.stringify(payload)
