@@ -2,7 +2,7 @@ var request = require('request');
 var async = require('async');
 var https = require('https');
 
-var WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+var WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL || 'https://hooks.slack.com/services/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';
 
 module.exports = function (req, res, next) {
 
